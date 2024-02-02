@@ -6,16 +6,20 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout 🛎️
+        if: ${{ !env.ACT }}
+        uses: actions/checkout@v3
+
       - name: mkdir tmp
         run: |
+          echo ${{ !env.ACT }}
           [ -d "./tmp" ] || mkdir ./tmp
           [ -d "./tmp/wd" ] || mkdir ./tmp/wd
 
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
 
       - name: 📖下载笔记本源文件（如果通过github上传则可以直接通过上方的 Checkout 来获取，这里演示从网络获取）
         run: |
+          ls
           cd ./tmp
           ZIP_NAME="advancedmath.sy.zip"
           LATEST_VERSION_TAG=$(curl -s "https://api.github.com/repos/tritium333/advancedmath_siyuan/releases" | jq -r '.[0].tag_name')
@@ -60,6 +64,7 @@ jobs:
           pnpm cli build -c ../../../../tmp/temp.json -o ../../../../tmp/output
 
       - name: Deploy 🚀
+        if: ${{ !env.ACT }}
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: ./tmp/output # The folder the action should deploy.
