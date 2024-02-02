@@ -1,0 +1,61 @@
+{
+  "__current__": "website",
+  "__init__": false,
+  "website": {
+    "name": "default",
+    "notebook": {
+      "id": "20240131230752-d628ux0",
+      "name": "website",
+      "icon": "",
+      "sort": 0,
+      "sortMode": 15,
+      "closed": false,
+      "newFlashcardCount": 0,
+      "dueFlashcardCount": 0,
+      "flashcardCount": 0
+    },
+    "authorized": "kj48m6im8rxul8g5",
+    "apiPrefix": "http://127.0.0.1:6806",
+    "compressedZip": true,
+    "withoutPublicZip": true,
+    "excludeAssetsCopy": false,
+    "sitemap": {
+      "enable": true,
+      "sitePrefix": ".",
+      "siteLink": "",
+      "description": "",
+      "title": "",
+      "rss": true
+    },
+    "enableIncrementalCompilation": false,
+    "enableIncrementalCompilation_doc": true,
+    "__skipBuilds__": {},
+    "cdn": {
+      "siyuanPrefix": "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/",
+      "publicZip": "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/public.zip"
+    },
+    "s3": {
+      "enable": false,
+      "bucket": "",
+      "region": "",
+      "pathPrefix": "",
+      "endpoint": "",
+      "accessKeyId": "",
+      "secretAccessKey": ""
+    },
+    "meilisearch": {
+      "enable": false,
+      "host": "",
+      "apiKey": "",
+      "indexName": ""
+    },
+    "embedCode": {
+      "head": "",
+      "beforeBody": "",
+      "afterBody": "<footer>\n<p style=\"text-align:center;margin:15px 0;\">\n  技术支持：\n  <a target=\"_blank\" href=\"https://github.com/2234839/oceanPress_js\">OceanPress</a> |\n  开发者：\n  <a target=\"_blank\" href=\"https://shenzilong.cn\">崮生（子虚）</a>\n</p>\n</footer>"
+    },
+    "OceanPress": {
+      "version": "0.0.10"
+    }
+  }
+}

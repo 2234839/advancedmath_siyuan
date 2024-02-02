@@ -6,26 +6,59 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: mkdir tmp
+        run: |
+          [ -d "./tmp" ] || mkdir ./tmp
+          [ -d "./tmp/wd" ] || mkdir ./tmp/wd
+
       # - name: Checkout 🛎️
       #   uses: actions/checkout@v3
-
-      - name: Download siyuan File
+      - name: 📖下载笔记本源文件（如果通过github上传则可以直接通过上方的 Checkout 来获取，这里演示从网络获取）
         run: |
+          cd ./tmp
+          ZIP_NAME="advancedmath.sy.zip"
+          LATEST_VERSION_TAG=$(curl -s "https://api.github.com/repos/tritium333/advancedmath_siyuan/releases" | jq -r '.[0].tag_name')
+          [ -f $ZIP_NAME ] || curl -LO "https://github.com/tritium333/advancedmath_siyuan/releases/download/$LATEST_VERSION_TAG/$ZIP_NAME"
+          [ -d 高等数学 ] || unzip $ZIP_NAME
+
+      - name: 🌊下载OceanPress
+        run: |
+          cd ./tmp
+          [ -d oceanpress ] || git clone https://github.com/siyuan-note/oceanpress.git
+          cd  ./oceanpress
+          git pull
+          cd ./apps/frontend/
+          [ command -v <pnpm> ] || npm i -g pnpm
+          pnpm install
+
+      - name: 💽下载思源程序并运行
+        run: |
+          cd ./tmp
           # 获取思源最新发布的版本号
-          LATEST_VERSION=$(curl --silent "https://api.github.com/repos/siyuan-note/siyuan/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
-          LATEST_VERSION=${LATEST_VERSION#v}  # 去除前缀 "v"
-          echo $LATEST_VERSION
-          curl -LO "https://github.com/siyuan-note/siyuan/releases/latest/download/siyuan-$LATEST_VERSION-linux.tar.gz"
-      
-      - name: test
-        run: |
-          ls -la
-      # - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
-      #   run: |
-      #     npm ci
-      #     npm run build
+          LATEST_VERSION_TAG=$(curl --silent "https://api.github.com/repos/siyuan-note/siyuan/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+          LATEST_VERSION=${LATEST_VERSION_TAG#v}  # 去除前缀 "v"
+          SIYUAN_FILE_ZIP_NAME="siyuan-$LATEST_VERSION-linux.tar.gz"
+          # 下载并解压思源最新版本
+          [ -f $SIYUAN_FILE_ZIP_NAME ] || curl -LO "https://github.com/siyuan-note/siyuan/releases/latest/download/$SIYUAN_FILE_ZIP_NAME"
+          SIYUAN_DIR="siyuan-$LATEST_VERSION-linux"
+          [ -d $SIYUAN_DIR ] || tar -xzf $SIYUAN_FILE_ZIP_NAME
+          cd $SIYUAN_DIR
+          # 运行程序初始化工作空间
+          [ -d ../wd/data ] || (timeout -s SIGINT 5s ./resources/kernel/SiYuan-Kernel -wd ./resources/ -workspace ../wd -accessAuthCode 123456789 -alsologtostderr ./err.log -lang zh_CN -log_dir ./ &) && sleep 10
+          # 复制一个预设的空笔记本过来,如果本来就上传的是笔记本而非导出的 zip 文件的话就不用这么麻烦。
+          cp -Rf ../../.github/workflows/20240131230752-d628ux0 ../wd/data
+          # 复制笔记
+          cp -Rf ../高等数学/* ../wd/data/20240131230752-d628ux0
+          ./resources/kernel/SiYuan-Kernel -wd ./resources/ -workspace ../wd -accessAuthCode 1234 -alsologtostderr ./err.log -lang zh_CN -log_dir ./ &
+          sleep 10
+          # 读取工作空间的 token 且更新 oceanpress.json 写到临时文件
+          TOKEN=$(jq -r '.api.token' ../wd/conf/conf.json)
+          jq --arg token "$TOKEN" '.website.authorized = $token' ../../.github/workflows/oceanpress.json > ../temp.json
+          # 编译输出
+          cd ../oceanpress/apps/frontend
+          pnpm cli build -c ../../../../tmp/temp.json -o ../../../../tmp/output
 
-      # - name: Deploy 🚀
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: build # The folder the action should deploy.
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build # The folder the action should deploy.
