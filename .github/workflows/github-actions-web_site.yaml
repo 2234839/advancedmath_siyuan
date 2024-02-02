@@ -1,0 +1,31 @@
+name: Build and Deploy
+on: [push]
+permissions:
+  contents: write
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # - name: Checkout 🛎️
+      #   uses: actions/checkout@v3
+
+      - name: Download siyuan File
+        run: |
+          # 获取思源最新发布的版本号
+          LATEST_VERSION=$(curl --silent "https://api.github.com/repos/siyuan-note/siyuan/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")')
+          LATEST_VERSION=${LATEST_VERSION#v}  # 去除前缀 "v"
+          echo $LATEST_VERSION
+          curl -LO "https://github.com/siyuan-note/siyuan/releases/latest/download/siyuan-$LATEST_VERSION-linux.tar.gz"
+      
+      - name: test
+        run: |
+          ls -la
+      # - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      #   run: |
+      #     npm ci
+      #     npm run build
+
+      # - name: Deploy 🚀
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     folder: build # The folder the action should deploy.
