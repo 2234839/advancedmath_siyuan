@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>导数与微分</title>
+</head>
+<body>
+  
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240131231523-2tn4xaz" data-node-id="20240131231523-2tn4xaz" data-type="NodeDocument" updated="20240201002138" data-subtype="h1" class="h1"></div><h1 id="20240131231523-2tn4xaz" data-node-id="20240131231523-2tn4xaz" data-type="NodeDocument" updated="20240201002138" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">导数与微分</h1><div id="20240201002138-5rp28gf" data-node-id="20240201002138-5rp28gf" data-type="NodeList" updated="20240201002138" data-subtype="u" class="list" custom-index-create="&#123;&quot;icon&quot;:true,&quot;depth&quot;:0,&quot;listType&quot;:&quot;unordered&quot;,&quot;linkType&quot;:&quot;ref&quot;,&quot;docBuilder&quot;:false,&quot;autoUpdate&quot;:true,&quot;col&quot;:1,&quot;fold&quot;:0&#125;"><div id="20240201002138-v4r61il" data-node-id="20240201002138-v4r61il" data-type="NodeListItem" updated="20240201002138" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201002138-4hehuyx" data-node-id="20240201002138-4hehuyx" data-type="NodeParagraph" updated="20240201002138" class="p"><div spellcheck="false">📄 <a href="siyuan://blocks/20240131232531-s9g0yt1">导数概念</a></div></div>
+    </div><div id="20240201002138-ykjl6qs" data-node-id="20240201002138-ykjl6qs" data-type="NodeListItem" updated="20240201002138" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201002138-54ely6y" data-node-id="20240201002138-54ely6y" data-type="NodeParagraph" updated="20240201002138" class="p"><div spellcheck="false">📄 <a href="siyuan://blocks/20240131232545-i6tr5mi">函数的求导法则</a></div></div>
+    </div><div id="20240201002138-fndxszq" data-node-id="20240201002138-fndxszq" data-type="NodeListItem" updated="20240201002138" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201002138-6qht81q" data-node-id="20240201002138-6qht81q" data-type="NodeParagraph" updated="20240201002138" class="p"><div spellcheck="false">📄 <a href="siyuan://blocks/20240131232606-mftywoh">高阶导数</a></div></div>
+    </div><div id="20240201002138-dk1naau" data-node-id="20240201002138-dk1naau" data-type="NodeListItem" updated="20240201002138" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201002138-gryiebd" data-node-id="20240201002138-gryiebd" data-type="NodeParagraph" updated="20240201002138" class="p"><div spellcheck="false">📄 <a href="siyuan://blocks/20240131232646-umm2k82">隐函数及由参数方程所确定的函数的导数 相关变化率</a></div></div>
+    </div><div id="20240201002138-tzxavk7" data-node-id="20240201002138-tzxavk7" data-type="NodeListItem" updated="20240201002138" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201002138-chlkx2v" data-node-id="20240201002138-chlkx2v" data-type="NodeParagraph" updated="20240201002138" class="p"><div spellcheck="false">📄 <a href="siyuan://blocks/20240131232737-zbtnn6w">函数的微分</a></div></div>
+    </div></div><div id="20240131231523-7nb134r" data-node-id="20240131231523-7nb134r" data-type="NodeParagraph" updated="20240131231523" class="p"><div spellcheck="false"></div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+  开发者：
+  <a target="_blank" href="https://shenzilong.cn">崮生（子虚）</a>
+</p>
+</footer>
+</body>
+</html>

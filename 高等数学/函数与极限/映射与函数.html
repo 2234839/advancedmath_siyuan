@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh_CN" data-theme-mode="light" data-light-theme="daylight" data-dark-theme="midnight">
+<head>
+  
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="stylesheet" type="text/css" id="baseStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/base.css?2.10.5"/>
+  <script>
+  function isNightTime() {
+    const currentHour = new Date().getHours();
+    return currentHour >= 18 || currentHour < 6;
+  }
+  document.write('<link rel="stylesheet" type="text/css" id="themeDefaultStyle" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/themes/'+(isNightTime()?'midnight':'daylight')+'/theme.css?2.10.5"/>');
+  </script>
+  <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/oceanpress.css"/>
+  <title>映射与函数</title>
+</head>
+<body>
+  
+  <div class="protyle-wysiwyg protyle-wysiwyg--attr" id="preview">
+  <div style="min-height: 150px;" id="20240131231856-rnf253x" data-node-id="20240131231856-rnf253x" data-type="NodeDocument" updated="20240201175040" data-subtype="h1" class="h1"></div><h1 id="20240131231856-rnf253x" data-node-id="20240131231856-rnf253x" data-type="NodeDocument" updated="20240201175040" data-subtype="h1" class="h1" data-type="NodeHeading" class="h1">映射与函数</h1><div id="20240201001910-2f60uch" data-node-id="20240201001910-2f60uch" data-type="NodeList" updated="20240201131318" data-subtype="u" class="list" custom-hidedots="1"><div id="20240201001910-78k0u9r" data-node-id="20240201001910-78k0u9r" data-type="NodeListItem" updated="20240201131318" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201001846-owoj4bm" data-node-id="20240201001846-owoj4bm" data-type="NodeParagraph" updated="20240201131318" class="p"><div spellcheck="false">映射的定义 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201001957-9m412ps" data-node-id="20240201001957-9m412ps" data-type="NodeList" updated="20240201124843" data-subtype="u" class="list"><div id="20240201001957-je9m1ec" data-node-id="20240201001957-je9m1ec" data-type="NodeListItem" updated="20240201124843" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201001151-zujwscy" data-node-id="20240201001151-zujwscy" data-type="NodeParagraph" updated="20240201124843" class="p" alias="像,原像" name="映射"><div spellcheck="false">设<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>、<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>是两个非空集合，如果存在一个法则<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>,使得对<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span> 中每个元素<span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span>,按法则<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>,在<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>中有唯一确定的元素<span data-type="inline-math" data-subtype="math" data-content="y" class="render-node"></span> 与之对应，那么称<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>为从<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span> 到<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>的<span data-type="strong"><span data-type="u">映射</span></span>，记作
+​<span data-type="inline-math" data-subtype="math" data-content="f\colon X\to Y" class="render-node"></span>,
+其中<span data-type="inline-math" data-subtype="math" data-content="y" class="render-node"></span>称为元素<span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span>(在映射<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>下)的<span data-type="strong"><span data-type="u">像</span></span>，并记作<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>,即
+​<span data-type="inline-math" data-subtype="math" data-content="y=f(x)\:" class="render-node"></span>,
+而元素<span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span>称为元素<span data-type="inline-math" data-subtype="math" data-content="y" class="render-node"></span>(在映射<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>下)的一个<span data-type="strong"><span data-type="u">原像</span></span>；集合<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>称为映射<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>的定义域，记作<span data-type="inline-math" data-subtype="math" data-content="D_f" class="render-node"></span>,即<span data-type="inline-math" data-subtype="math" data-content="D_f=X" class="render-node"></span>; <span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span> 中所有元素的像所组成的集合称为映射<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>的值域，记作<span data-type="inline-math" data-subtype="math" data-content="R_f" class="render-node"></span>或<span data-type="inline-math" data-subtype="math" data-content="f(X)" class="render-node"></span>,即
+​<span data-type="inline-math" data-subtype="math" data-content="R_{f}=f(X)=\{f(x)\mid x\in X\}" class="render-node"></span>
+</div></div>
+    </div></div>
+    </div></div><div id="20240201131530-evvdbgg" data-node-id="20240201131530-evvdbgg" data-type="NodeList" updated="20240201140031" data-subtype="u" class="list"><div id="20240201131530-6486i5b" data-node-id="20240201131530-6486i5b" data-type="NodeListItem" updated="20240201140031" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201130529-2ifo9wo" data-node-id="20240201130529-2ifo9wo" data-type="NodeParagraph" updated="20240201132135" class="p"><div spellcheck="false">满射、单射、双射 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201131550-6gnw93i" data-node-id="20240201131550-6gnw93i" data-type="NodeList" updated="20240201140031" data-subtype="u" class="list"><div id="20240201131548-8wjppll" data-node-id="20240201131548-8wjppll" data-type="NodeListItem" updated="20240201140031" data-subtype="u" class="li" alias="满射,单射,双射" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201131548-0i9i75b" data-node-id="20240201131548-0i9i75b" data-type="NodeParagraph" updated="20240201140031" class="p"><div spellcheck="false">设<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>是从集合<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span> 到集合<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>的<a href="siyuan://blocks/20240201001151-zujwscy">映射</a>，若<span data-type="inline-math" data-subtype="math" data-content="R_f=Y" class="render-node"></span>,即<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>中任一元素 <span data-type="inline-math" data-subtype="math" data-content="y" class="render-node"></span> 都是<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span> 中某元素的像，则称<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>为<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span><span data-type="u">到</span><span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span><span data-type="u">上的映射</span>或<span data-type="u"><span data-type="strong">满射</span></span>；若对<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>中任意两个不同元素<span data-type="inline-math" data-subtype="math" data-content="x_{1}\neq" class="render-node"></span> <span data-type="inline-math" data-subtype="math" data-content="x_2" class="render-node"></span>,它们的像<span data-type="inline-math" data-subtype="math" data-content="f(x_1)\neq f(x_2)" class="render-node"></span>, 则称<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>为<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>到<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>的<span data-type="u"><span data-type="strong">单射</span></span>；若映射<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span> 既是单射，又是满射，则称<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>为<span data-type="u">一一映射</span>(或<span data-type="u"><span data-type="strong">双射</span></span>).</div></div>
+    </div></div>
+    </div></div><div id="20240201132437-kd35e1t" data-node-id="20240201132437-kd35e1t" data-type="NodeList" updated="20240201135234" data-subtype="u" class="list"><div id="20240201132437-gezlqm0" data-node-id="20240201132437-gezlqm0" data-type="NodeListItem" updated="20240201135234" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201131304-djmhuqb" data-node-id="20240201131304-djmhuqb" data-type="NodeParagraph" updated="20240201132748" class="p"><div spellcheck="false">算子、泛函、变换、函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201132439-cx1th6g" data-node-id="20240201132439-cx1th6g" data-type="NodeList" updated="20240201135234" data-subtype="u" class="list"><div id="20240201132439-zqcwu69" data-node-id="20240201132439-zqcwu69" data-type="NodeListItem" updated="20240201135234" data-subtype="u" class="li" alias="算子,泛函,变换,函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201132439-7h2at9w" data-node-id="20240201132439-7h2at9w" data-type="NodeParagraph" updated="20240201135234" class="p"><div spellcheck="false"><a href="siyuan://blocks/20240201001151-zujwscy">映射</a>又称为<span data-type="u"><span data-type="strong">算子</span></span>. 根据集合<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>、<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>的不同情形，在不同的数学分支中，映射又有不同的惯用名称. 例如，从非空集<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>到数集<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>的映射又称为<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上的<span data-type="u"><span data-type="strong">泛函</span></span>，从非空集<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>到它自身的映射又称为<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上的<span data-type="u"><span data-type="strong">变换</span></span>，从实数集(或其子集)<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span> 到实数集<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>的映射通常称为定义在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上的<span data-type="u"><span data-type="strong">函数</span></span>。</div></div>
+    </div></div>
+    </div></div><div id="20240201134406-zygwwyt" data-node-id="20240201134406-zygwwyt" data-type="NodeList" updated="20240201140021" data-subtype="u" class="list"><div id="20240201134406-683e09n" data-node-id="20240201134406-683e09n" data-type="NodeListItem" updated="20240201140021" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201132129-kppkfs8" data-node-id="20240201132129-kppkfs8" data-type="NodeParagraph" updated="20240201135639" class="p"><div spellcheck="false">逆映射的定义 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201135111-8z4ss5n" data-node-id="20240201135111-8z4ss5n" data-type="NodeList" updated="20240201140021" data-subtype="u" class="list"><div id="20240201134408-da7t7xz" data-node-id="20240201134408-da7t7xz" data-type="NodeListItem" updated="20240201140021" data-subtype="u" class="li" name="逆映射" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201134408-772yxaj" data-node-id="20240201134408-772yxaj" data-type="NodeParagraph" updated="20240201140021" class="p"><div spellcheck="false">设<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>是<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>到<span data-type="inline-math" data-subtype="math" data-content="Y" class="render-node"></span>的<a href="siyuan://blocks/20240201131548-8wjppll">单射</a>，则由定义，对每个 <span data-type="inline-math" data-subtype="math" data-content="y\in R_f" class="render-node"></span>,有唯一的 <span data-type="inline-math" data-subtype="math" data-content="x\in X" class="render-node"></span>,适合 <span data-type="inline-math" data-subtype="math" data-content="f(x)=y" class="render-node"></span>. 于是，我们可定义一个从 <span data-type="inline-math" data-subtype="math" data-content="R_f" class="render-node"></span> 到<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span> 的新映射<span data-type="inline-math" data-subtype="math" data-content="g" class="render-node"></span>, 即
+​<span data-type="inline-math" data-subtype="math" data-content="g{:}R_{f}\xrightarrow{}X" class="render-node"></span>
+对每个<span data-type="inline-math" data-subtype="math" data-content="y\in R_f" class="render-node"></span>,规定<span data-type="inline-math" data-subtype="math" data-content="g(y)=x" class="render-node"></span>, 这<span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span> 满足<span data-type="inline-math" data-subtype="math" data-content="f(x)=y" class="render-node"></span>. 这个映射 <span data-type="inline-math" data-subtype="math" data-content="g" class="render-node"></span> 称为 <span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span> 的<span data-type="u"><span data-type="strong">逆映射</span></span>，记作<span data-type="inline-math" data-subtype="math" data-content="f^{-1}" class="render-node"></span>,
+其定义域 <span data-type="inline-math" data-subtype="math" data-content="D_{f^{-1}}=R_{f}" class="render-node"></span>,值域 <span data-type="inline-math" data-subtype="math" data-content="R_{f^{-1}}=X." class="render-node"></span>
+</div></div>
+    </div></div>
+    </div></div><div id="20240201134204-rzpgm02" data-node-id="20240201134204-rzpgm02" data-type="NodeParagraph" updated="20240201140312" class="p" custom-riff-decks="20230218211946-2kw8jgx"><div spellcheck="false">只有<span data-type="mark">单射</span>才存在<a href="siyuan://blocks/20240201134408-da7t7xz">逆映射</a>。 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201140442-pfiwe41" data-node-id="20240201140442-pfiwe41" data-type="NodeList" updated="20240201165340" data-subtype="u" class="list"><div id="20240201140442-f1x8sp0" data-node-id="20240201140442-f1x8sp0" data-type="NodeListItem" updated="20240201165340" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201135833-5ln0t6u" data-node-id="20240201135833-5ln0t6u" data-type="NodeParagraph" updated="20240201141205" class="p"><div spellcheck="false">复合映射的定义 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201140444-blqu89e" data-node-id="20240201140444-blqu89e" data-type="NodeList" updated="20240201165340" data-subtype="u" class="list"><div id="20240201140444-rmoq7x4" data-node-id="20240201140444-rmoq7x4" data-type="NodeListItem" updated="20240201165340" data-subtype="u" class="li" name="复合映射" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201140444-rl5diae" data-node-id="20240201140444-rl5diae" data-type="NodeParagraph" updated="20240201165340" class="p"><div spellcheck="false">设有两个<a href="siyuan://blocks/20240201001151-zujwscy">映射</a>​
+​<span data-type="inline-math" data-subtype="math" data-content="g{:}X{\to}Y_{1},\quad f{:}Y_{2}{\to}{Z}," class="render-node"></span>
+其中<span data-type="inline-math" data-subtype="math" data-content="Y_1\subset Y_2" class="render-node"></span>, 则由映射<span data-type="inline-math" data-subtype="math" data-content="g" class="render-node"></span> 和<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>可以定出一个从<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>到<span data-type="inline-math" data-subtype="math" data-content="Z" class="render-node"></span> 的对应法则，它将每个<span data-type="inline-math" data-subtype="math" data-content="x\in X" class="render-node"></span> 映成<span data-type="inline-math" data-subtype="math" data-content="f[g(x)]\in Z" class="render-node"></span>. 显然，这个对应法则确定了一个从<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span> 到<span data-type="inline-math" data-subtype="math" data-content="Z" class="render-node"></span> 的映射，这个映射称为映射 <span data-type="inline-math" data-subtype="math" data-content="g" class="render-node"></span> 和 <span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span> 构成的<span data-type="strong"><span data-type="u">复合映射</span></span>，记作 <span data-type="inline-math" data-subtype="math" data-content="f\circ g" class="render-node"></span> ,即
+​<span data-type="inline-math" data-subtype="math" data-content="f\circ g:X\to Z" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="(f\circ g)(x)=f[g(x)]" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="x\in X" class="render-node"></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201141726-r3bxeah" data-node-id="20240201141726-r3bxeah" data-type="NodeList" updated="20240201143102" data-subtype="u" class="list"><div id="20240201141726-o7awtt7" data-node-id="20240201141726-o7awtt7" data-type="NodeListItem" updated="20240201143102" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201132743-253lfhl" data-node-id="20240201132743-253lfhl" data-type="NodeParagraph" updated="20240201141951" class="p"><div spellcheck="false">函数的定义 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201141729-hdb1tw2" data-node-id="20240201141729-hdb1tw2" data-type="NodeList" updated="20240201143102" data-subtype="u" class="list"><div id="20240201141728-eprfnfv" data-node-id="20240201141728-eprfnfv" data-type="NodeListItem" updated="20240201143102" data-subtype="u" class="li" alias="自变量,因变量,函数值,函数关系,值域" name="函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201141728-rimounm" data-node-id="20240201141728-rimounm" data-type="NodeParagraph" updated="20240201143102" class="p"><div spellcheck="false">设数集 <span data-type="inline-math" data-subtype="math" data-content="D\subset\mathbf{R}" class="render-node"></span>, 则称<a href="siyuan://blocks/20240201001151-zujwscy">映射</a> <span data-type="inline-math" data-subtype="math" data-content="f{:}D\to\mathbf{R}" class="render-node"></span> 为定义在 <span data-type="inline-math" data-subtype="math" data-content="D" class="render-node"></span> 上的<span data-type="strong"><span data-type="u">函数</span></span>，通常简记为
+<span data-type="inline-math" data-subtype="math" data-content="y=f(x)\:,\:x\in D" class="render-node"></span>,
+其中<span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span>称为<span data-type="strong"><span data-type="u">自变量</span></span>，<span data-type="inline-math" data-subtype="math" data-content="y" class="render-node"></span> 称为<span data-type="strong"><span data-type="u">因变量</span></span>，<span data-type="inline-math" data-subtype="math" data-content="D" class="render-node"></span> 称为<span data-type="strong"><span data-type="u">定义域</span></span>，记作 <span data-type="inline-math" data-subtype="math" data-content="D_{f}" class="render-node"></span>,即 <span data-type="inline-math" data-subtype="math" data-content="D_{f}=D." class="render-node"></span>
+函数的定义中，对每个<span data-type="inline-math" data-subtype="math" data-content="x\in D" class="render-node"></span>, 按对应法则<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>, 总有唯一确定的值 <span data-type="inline-math" data-subtype="math" data-content="y" class="render-node"></span> 与之对应， 这个值称为函数 <span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span> 在 <span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span> 处的<span data-type="u"><span data-type="strong">函数值</span></span>，记作<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>, 即 <span data-type="inline-math" data-subtype="math" data-content="y=f(x)" class="render-node"></span>. 因变量 <span data-type="inline-math" data-subtype="math" data-content="y" class="render-node"></span> 与自变量 <span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span> 之间的这种依赖关系，通常称为<span data-type="u"><span data-type="strong">函数关系</span></span>. 函数值<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>的全体所构成的集合称为函数<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>的<span data-type="u"><span data-type="strong">值域</span></span>，记作<span data-type="inline-math" data-subtype="math" data-content="R_f" class="render-node"></span>或<span data-type="inline-math" data-subtype="math" data-content="f(D)" class="render-node"></span>,即
+<span data-type="inline-math" data-subtype="math" data-content="R_{f}=f(\:D\:)=\{\:y\:|\:y=f(\:x\:)\:,x\in D\:\}\:" class="render-node"></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201142558-ubub53r" data-node-id="20240201142558-ubub53r" data-type="NodeList" updated="20240201143907" data-subtype="u" class="list"><div id="20240201142558-eeojysk" data-node-id="20240201142558-eeojysk" data-type="NodeListItem" updated="20240201143907" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201140308-wtelabe" data-node-id="20240201140308-wtelabe" data-type="NodeParagraph" updated="20240201142714" class="p"><div spellcheck="false">自然定义域 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201142601-abusfoj" data-node-id="20240201142601-abusfoj" data-type="NodeList" updated="20240201143907" data-subtype="u" class="list"><div id="20240201142601-7uq7ju0" data-node-id="20240201142601-7uq7ju0" data-type="NodeListItem" updated="20240201143907" data-subtype="u" class="li" name="自然定义域" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201142601-qfqfkrq" data-node-id="20240201142601-qfqfkrq" data-type="NodeParagraph" updated="20240201143907" class="p"><div spellcheck="false">使得算式有意义的一切实数组成的集合称为<a href="siyuan://blocks/20240201141728-eprfnfv">函数</a>的<span data-type="u"><span data-type="strong">自然定义域</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201142742-4u5xpx3" data-node-id="20240201142742-4u5xpx3" data-type="NodeList" updated="20240201143914" data-subtype="u" class="list"><div id="20240201142742-3p1s5q9" data-node-id="20240201142742-3p1s5q9" data-type="NodeListItem" updated="20240201143914" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201142533-k4es1xs" data-node-id="20240201142533-k4es1xs" data-type="NodeParagraph" updated="20240201143655" class="p"><div spellcheck="false">图形 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201143331-mht3j49" data-node-id="20240201143331-mht3j49" data-type="NodeList" updated="20240201143914" data-subtype="u" class="list"><div id="20240201143328-7ou1gxb" data-node-id="20240201143328-7ou1gxb" data-type="NodeListItem" updated="20240201143914" data-subtype="u" class="li" name="图形" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201143328-dt85jx8" data-node-id="20240201143328-dt85jx8" data-type="NodeParagraph" updated="20240201143914" class="p"><div spellcheck="false">坐标平面上的点集
+​<span data-type="inline-math" data-subtype="math" data-content="\{P(x,y)\mid y=f(x),x\in D\}" class="render-node"></span>
+称为<a href="siyuan://blocks/20240201141728-eprfnfv">函数</a> <span data-type="inline-math" data-subtype="math" data-content="y=f(x)" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="x\in D" class="render-node"></span> 的<span data-type="u"><span data-type="strong">图形</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201144120-dymengb" data-node-id="20240201144120-dymengb" data-type="NodeList" updated="20240201151338" data-subtype="u" class="list"><div id="20240201144120-t3xmta4" data-node-id="20240201144120-t3xmta4" data-type="NodeListItem" updated="20240201151338" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201142701-s46j9di" data-node-id="20240201142701-s46j9di" data-type="NodeParagraph" updated="20240201145453" class="p"><div spellcheck="false">绝对值函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201145045-0rozcaf" data-node-id="20240201145045-0rozcaf" data-type="NodeList" updated="20240201151338" data-subtype="u" class="list"><div id="20240201145044-cux3dyx" data-node-id="20240201145044-cux3dyx" data-type="NodeListItem" updated="20240201151338" data-subtype="u" class="li" name="绝对值函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201145044-7aszjjj" data-node-id="20240201145044-7aszjjj" data-type="NodeParagraph" updated="20240201151338" class="p"><div spellcheck="false"><a href="siyuan://blocks/20240201141728-eprfnfv">函数</a>​
+​<span data-type="inline-math" data-subtype="math" data-content="y=\mid x\mid=\begin{cases}-x\:,\quad x<0\:,\\x\:,\quad x\ge0\end{cases}" class="render-node"></span>
+的定义域<span data-type="inline-math" data-subtype="math" data-content="D=(-\infty,+\infty)" class="render-node"></span>,值域<span data-type="inline-math" data-subtype="math" data-content="R_{f}=[0,+\infty)" class="render-node"></span>,它的<a href="siyuan://blocks/20240201143328-7ou1gxb">图形</a>如图所示. 这函数称为<span data-type="u"><span data-type="strong">绝对值函数</span></span>.
+​<span data-type="NodeImage" class="img" parent-style="width: 261px;" style="width: 251px;" style="width: 261px;">
+<img
+  src="./../../assets/image-20240201145122-7pytf0r.png"
+  data-src="./../../assets/image-20240201145122-7pytf0r.png"
+  title=""
+  style="width: 251px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div>
+    </div></div>
+    </div></div><div id="20240201144122-0uoi8he" data-node-id="20240201144122-0uoi8he" data-type="NodeList" updated="20240201151343" data-subtype="u" class="list"><div id="20240201144122-lhflu0i" data-node-id="20240201144122-lhflu0i" data-type="NodeListItem" updated="20240201151343" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201143944-1mruall" data-node-id="20240201143944-1mruall" data-type="NodeParagraph" updated="20240201145525" class="p"><div spellcheck="false">符号函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201145330-1ld738n" data-node-id="20240201145330-1ld738n" data-type="NodeList" updated="20240201151343" data-subtype="u" class="list"><div id="20240201145330-q32oog2" data-node-id="20240201145330-q32oog2" data-type="NodeListItem" updated="20240201151343" data-subtype="u" class="li" name="符号函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201145330-vri18xa" data-node-id="20240201145330-vri18xa" data-type="NodeParagraph" updated="20240201151343" class="p"><div spellcheck="false"><a href="siyuan://blocks/20240201141728-eprfnfv">函数</a>
+<span data-type="inline-math" data-subtype="math" data-content="y=\text{sgn}\ x=\begin{cases}-1,&x<0,\\0,&x=0,\\1,&x>0\end{cases}" class="render-node"></span>
+称为<span data-type="u"><span data-type="strong">符号函数</span></span>，它的定义域<span data-type="inline-math" data-subtype="math" data-content="D=(-\infty,+\infty)" class="render-node"></span>; 值域<span data-type="inline-math" data-subtype="math" data-content="R_f=\{-1,0,1\}" class="render-node"></span>, 它的<a href="siyuan://blocks/20240201143328-7ou1gxb">图形</a>如图所示. 对于任何实数<span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span>,下列关系成立：
+<span data-type="inline-math" data-subtype="math" data-content="x=\mathrm{sgn}\:x\cdot|x|." class="render-node"></span>
+​<span data-type="NodeImage" class="img" parent-style="width: 278px;" style="width: 268px;" style="width: 278px;">
+<img
+  src="./../../assets/image-20240201145706-uu31udp.png"
+  data-src="./../../assets/image-20240201145706-uu31udp.png"
+  title=""
+  style="width: 268px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div>
+    </div></div>
+    </div></div><div id="20240201145906-4hnpm57" data-node-id="20240201145906-4hnpm57" data-type="NodeList" updated="20240201152508" data-subtype="u" class="list"><div id="20240201145906-62chlg4" data-node-id="20240201145906-62chlg4" data-type="NodeListItem" updated="20240201152508" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201143807-55yyefk" data-node-id="20240201143807-55yyefk" data-type="NodeParagraph" updated="20240201152508" class="p"><div spellcheck="false">取整函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201145908-pffxsyz" data-node-id="20240201145908-pffxsyz" data-type="NodeList" updated="20240201151509" data-subtype="u" class="list"><div id="20240201145907-3hz8ufm" data-node-id="20240201145907-3hz8ufm" data-type="NodeListItem" updated="20240201151509" data-subtype="u" class="li" alias="整数部分,阶梯曲线" name="取整函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201145907-xyuha15" data-node-id="20240201145907-xyuha15" data-type="NodeParagraph" updated="20240201151509" class="p"><div spellcheck="false">设<span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span>为任一实数，不超过 <span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span> 的最大整数称为 x 的<span data-type="strong"><span data-type="u">整数部分</span></span>，记作[x]. 例如<span data-type="inline-math" data-subtype="math" data-content="\left[\frac{5}{7}\right]=0" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="\left[\sqrt{2}\right]=1" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="\left[\pi\right]=3" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="\left[-1\right]=-1" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="\left[-3.5\right]=-4" class="render-node"></span>. 把 <span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span> 看作变量，则<a href="siyuan://blocks/20240201141728-eprfnfv">函数</a>
+​<span data-type="inline-math" data-subtype="math" data-content="y=\left[\ x\ \right]" class="render-node"></span>
+的定义域<span data-type="inline-math" data-subtype="math" data-content="D=(-\infty,+\infty)" class="render-node"></span>, 值域<span data-type="inline-math" data-subtype="math" data-content="R_{f}=\mathbf{Z}" class="render-node"></span>. 它的<a href="siyuan://blocks/20240201143328-7ou1gxb">图形</a>​如图所示，这图形称为<span data-type="u"><span data-type="strong">阶梯曲线</span></span>. 在<span data-type="inline-math" data-subtype="math" data-content="x" class="render-node"></span>为整数值处，图形发生跳跃，跃度为1. 这函数称为<span data-type="u"><span data-type="strong">取整函数</span></span>.
+​<span data-type="NodeImage" class="img" parent-style="width: 261px;" style="width: 251px;" style="width: 261px;">
+<img
+  src="./../../assets/image-20240201150544-2hga4m9.png"
+  data-src="./../../assets/image-20240201150544-2hga4m9.png"
+  title=""
+  style="width: 251px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div>
+    </div></div>
+    </div></div><div id="20240201150603-bx3rxy9" data-node-id="20240201150603-bx3rxy9" data-type="NodeList" updated="20240201152536" data-subtype="u" class="list"><div id="20240201150603-3a3z5be" data-node-id="20240201150603-3a3z5be" data-type="NodeListItem" updated="20240201152536" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201144053-n3wn3pt" data-node-id="20240201144053-n3wn3pt" data-type="NodeParagraph" updated="20240201152536" class="p"><div spellcheck="false">分段函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201150607-48vz572" data-node-id="20240201150607-48vz572" data-type="NodeList" updated="20240201151443" data-subtype="u" class="list"><div id="20240201150606-500gk1s" data-node-id="20240201150606-500gk1s" data-type="NodeListItem" updated="20240201151443" data-subtype="u" class="li" name="分段函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201150606-3m7gxgw" data-node-id="20240201150606-3m7gxgw" data-type="NodeParagraph" updated="20240201151443" class="p"><div spellcheck="false">在<a href="siyuan://blocks/20240201141728-eprfnfv">自变量</a>的不同变化范围中，对应法则用不同式子来表示的函数，通常称为<span data-type="u"><span data-type="strong">分段函数</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201153537-79dwbm8" data-node-id="20240201153537-79dwbm8" data-type="NodeList" updated="20240201154740" data-subtype="u" class="list"><div id="20240201153537-j18v1h0" data-node-id="20240201153537-j18v1h0" data-type="NodeListItem" updated="20240201154740" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201150813-d56fj7i" data-node-id="20240201150813-d56fj7i" data-type="NodeParagraph" updated="20240201154107" class="p"><div spellcheck="false">函数的有界性 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201153540-cqhrdvr" data-node-id="20240201153540-cqhrdvr" data-type="NodeList" updated="20240201154740" data-subtype="u" class="list"><div id="20240201153539-18cx1m2" data-node-id="20240201153539-18cx1m2" data-type="NodeListItem" updated="20240201154740" data-subtype="u" class="li" alias="上界,下界,有界,无界" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201153539-7bm37zi" data-node-id="20240201153539-7bm37zi" data-type="NodeParagraph" updated="20240201154740" class="p"><div spellcheck="false">设函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>的<a href="siyuan://blocks/20240201141728-eprfnfv">定义域</a>为<span data-type="inline-math" data-subtype="math" data-content="D" class="render-node"></span>, 数集<span data-type="inline-math" data-subtype="math" data-content="X\subset D" class="render-node"></span>. 如果存在数 <span data-type="inline-math" data-subtype="math" data-content="K_{1}" class="render-node"></span>,使得<br><span data-type="inline-math" data-subtype="math" data-content="f(x)\leqslant K_1" class="render-node"></span>
+对任一 <span data-type="inline-math" data-subtype="math" data-content="x\in X" class="render-node"></span>都成立，那么称函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上有<span data-type="u"><span data-type="strong">上界</span></span>，而<span data-type="inline-math" data-subtype="math" data-content="K_{1}" class="render-node"></span>称为函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上的一个上界. 如果存在数<span data-type="inline-math" data-subtype="math" data-content="K_2" class="render-node"></span>,使得
+​<span data-type="inline-math" data-subtype="math" data-content="f(x)\geqslant K_{2}" class="render-node"></span>
+对任一<span data-type="inline-math" data-subtype="math" data-content="x\in X" class="render-node"></span>都成立，那么称函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上有<span data-type="u"><span data-type="strong">下界</span></span>，而<span data-type="inline-math" data-subtype="math" data-content="K_2" class="render-node"></span>称为函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上的一个下界. 如果存在正数<span data-type="inline-math" data-subtype="math" data-content="M" class="render-node"></span>,使得
+​<span data-type="inline-math" data-subtype="math" data-content="|f(x)|\leqslant M" class="render-node"></span>
+对任一 <span data-type="inline-math" data-subtype="math" data-content="x\in X" class="render-node"></span>都成立，那么称函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上<span data-type="u"><span data-type="strong">有界</span></span>. 如果这样的<span data-type="inline-math" data-subtype="math" data-content="M" class="render-node"></span>不存在，就称函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上<span data-type="u"><span data-type="strong">无界</span></span>；这就是说，如果对于任何正数<span data-type="inline-math" data-subtype="math" data-content="M" class="render-node"></span>, 总存在 <span data-type="inline-math" data-subtype="math" data-content="x_{i}\in X" class="render-node"></span>, 使<span data-type="inline-math" data-subtype="math" data-content="|f(x_{1})|>M" class="render-node"></span>, 那么函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上无界.</div></div>
+    </div></div>
+    </div></div><div id="20240201152749-rj3iol6" data-node-id="20240201152749-rj3iol6" data-type="NodeParagraph" updated="20240201154137" class="p" custom-riff-decks="20230218211946-2kw8jgx"><div spellcheck="false">函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在<span data-type="inline-math" data-subtype="math" data-content="X" class="render-node"></span>上<a href="siyuan://blocks/20240201153539-18cx1m2">有界</a>的充分必要条件是<span data-type="mark">它在 X 上既有上界又有下界</span>. <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div>​</div></div><div id="20240201154507-w97xz1h" data-node-id="20240201154507-w97xz1h" data-type="NodeList" updated="20240201154703" data-subtype="u" class="list"><div id="20240201154507-rxqvw29" data-node-id="20240201154507-rxqvw29" data-type="NodeListItem" updated="20240201154703" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201145447-40vb8q8" data-node-id="20240201145447-40vb8q8" data-type="NodeParagraph" updated="20240201154635" class="p"><div spellcheck="false">函数的单调性 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201154509-0aasu3p" data-node-id="20240201154509-0aasu3p" data-type="NodeList" updated="20240201154703" data-subtype="u" class="list"><div id="20240201154509-4p26pfd" data-node-id="20240201154509-4p26pfd" data-type="NodeListItem" updated="20240201154703" data-subtype="u" class="li" alias="单调增加,单调减少,单调函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201154509-hbh37dc" data-node-id="20240201154509-hbh37dc" data-type="NodeParagraph" updated="20240201154703" class="p"><div spellcheck="false">设函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>的<a href="siyuan://blocks/20240201141728-eprfnfv">定义域</a>为<span data-type="inline-math" data-subtype="math" data-content="D" class="render-node"></span>, 区间 <span data-type="inline-math" data-subtype="math" data-content="I\subset D" class="render-node"></span>. 如果对于区间 <span data-type="inline-math" data-subtype="math" data-content="I" class="render-node"></span> 上任意两点<span data-type="inline-math" data-subtype="math" data-content="x_1" class="render-node"></span>及<span data-type="inline-math" data-subtype="math" data-content="x_2" class="render-node"></span>, 当<span data-type="inline-math" data-subtype="math" data-content="x_1<x_2" class="render-node"></span>时，恒有
+​<span data-type="inline-math" data-subtype="math" data-content="f(x_1)<f(x_2)" class="render-node"></span>,
+那么称函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在区间 <span data-type="inline-math" data-subtype="math" data-content="I" class="render-node"></span> 上是<span data-type="u"><span data-type="strong">单调增加</span></span>的; 如果对于区间 <span data-type="inline-math" data-subtype="math" data-content="I" class="render-node"></span> 上任意两点<span data-type="inline-math" data-subtype="math" data-content="x_{1}" class="render-node"></span>及<span data-type="inline-math" data-subtype="math" data-content="x_{2}" class="render-node"></span>, 当<span data-type="inline-math" data-subtype="math" data-content="x_{1}<x_{2}" class="render-node"></span>时，恒有
+ <span data-type="inline-math" data-subtype="math" data-content="f(x_{1})>f(x_{2})" class="render-node"></span>, 那么称函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>在区间 <span data-type="inline-math" data-subtype="math" data-content="I" class="render-node"></span> 上是<span data-type="u"><span data-type="strong">单调减少</span></span>的. 单调增加和单调减少的函数统称为<span data-type="u"><span data-type="strong">单调函数</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201155023-1wak8kx" data-node-id="20240201155023-1wak8kx" data-type="NodeList" updated="20240201163049" data-subtype="u" class="list"><div id="20240201155023-00r4epb" data-node-id="20240201155023-00r4epb" data-type="NodeListItem" updated="20240201163049" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201153447-k2ztnbc" data-node-id="20240201153447-k2ztnbc" data-type="NodeParagraph" updated="20240201155447" class="p"><div spellcheck="false">函数的奇偶性 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201155030-m2q2i5w" data-node-id="20240201155030-m2q2i5w" data-type="NodeList" updated="20240201163049" data-subtype="u" class="list"><div id="20240201155025-knevn17" data-node-id="20240201155025-knevn17" data-type="NodeListItem" updated="20240201163049" data-subtype="u" class="li" alias="奇函数,偶函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201155025-h7yizbg" data-node-id="20240201155025-h7yizbg" data-type="NodeParagraph" updated="20240201163049" class="p"><div spellcheck="false">设函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>的<a href="siyuan://blocks/20240201141728-eprfnfv">定义域</a> <span data-type="inline-math" data-subtype="math" data-content="D" class="render-node"></span> 关于原点对称. 如果对于任一 <span data-type="inline-math" data-subtype="math" data-content="x\in D" class="render-node"></span>,
+<span data-type="inline-math" data-subtype="math" data-content="f(-x)=f(x)" class="render-node"></span>
+恒成立，那么称<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>为<span data-type="u"><span data-type="strong">偶函数</span></span>. 如果对于任一 <span data-type="inline-math" data-subtype="math" data-content="x\in D" class="render-node"></span>,
+<span data-type="inline-math" data-subtype="math" data-content="f(-x)=-f(x)" class="render-node"></span>
+恒成立，那么称<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>为<span data-type="u"><span data-type="strong">奇函数</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201155250-rgauctp" data-node-id="20240201155250-rgauctp" data-type="NodeParagraph" updated="20240201155638" class="p" custom-riff-decks="20230218211946-2kw8jgx"><div spellcheck="false"><a href="siyuan://blocks/20240201155025-knevn17">偶函数</a>的<a href="siyuan://blocks/20240201143328-7ou1gxb">图形</a>关于<span data-type="mark">y轴</span>是对称的. <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div>
+<a href="siyuan://blocks/20240201155025-knevn17">奇函数</a>的图形关于<span data-type="mark">原点</span>是对称的.</div></div><div id="20240201155742-eengjxq" data-node-id="20240201155742-eengjxq" data-type="NodeList" updated="20240201163106" data-subtype="u" class="list"><div id="20240201155742-555j9m6" data-node-id="20240201155742-555j9m6" data-type="NodeListItem" updated="20240201163106" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201150859-ew2h0o5" data-node-id="20240201150859-ew2h0o5" data-type="NodeParagraph" updated="20240201160143" class="p"><div spellcheck="false">函数的周期性 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201155932-26ghh32" data-node-id="20240201155932-26ghh32" data-type="NodeList" updated="20240201163106" data-subtype="u" class="list"><div id="20240201155930-1ln5yc3" data-node-id="20240201155930-1ln5yc3" data-type="NodeListItem" updated="20240201163106" data-subtype="u" class="li" alias="周期函数,周期,最小正周期" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201155930-edj4urd" data-node-id="20240201155930-edj4urd" data-type="NodeParagraph" updated="20240201163106" class="p"><div spellcheck="false">设函数<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>的<a href="siyuan://blocks/20240201141728-eprfnfv">定义域</a>为<span data-type="inline-math" data-subtype="math" data-content="D" class="render-node"></span>. 如果存在一个正数 <span data-type="inline-math" data-subtype="math" data-content="l" class="render-node"></span>, 使得对于任一 <span data-type="inline-math" data-subtype="math" data-content="x\in D" class="render-node"></span> 有 <span data-type="inline-math" data-subtype="math" data-content="(x\pm l)\in D" class="render-node"></span>, 且
+ <span data-type="inline-math" data-subtype="math" data-content="f(x+l)=f(\:x)" class="render-node"></span>
+恒成立，那么称<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>为<span data-type="u"><span data-type="strong">周期函数</span></span>，<span data-type="inline-math" data-subtype="math" data-content="l" class="render-node"></span> 称为<span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span>的<span data-type="u"><span data-type="strong">周期</span></span>，通常我们说周期函数的周期是指<span data-type="u"><span data-type="strong">最小正周期</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201155437-8jijooc" data-node-id="20240201155437-8jijooc" data-type="NodeParagraph" updated="20240201160726" class="p" custom-riff-decks="20230218211946-2kw8jgx"><div spellcheck="false">周期为 <span data-type="inline-math" data-subtype="math" data-content="l" class="render-node"></span> 的<a href="siyuan://blocks/20240201155930-1ln5yc3">周期函数</a>，在每个长度为 <span data-type="inline-math" data-subtype="math" data-content="l" class="render-node"></span> 的区间上，函数<a href="siyuan://blocks/20240201143328-7ou1gxb">图形</a><span data-type="mark">有相同的形状</span>. <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201161005-yn9qfzv" data-node-id="20240201161005-yn9qfzv" data-type="NodeList" updated="20240201162143" data-subtype="u" class="list"><div id="20240201161005-ri4pl7z" data-node-id="20240201161005-ri4pl7z" data-type="NodeListItem" updated="20240201162143" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201160756-0ue3kab" data-node-id="20240201160756-0ue3kab" data-type="NodeParagraph" updated="20240201161124" class="p"><div spellcheck="false">[判断题] 每个周期函数都有<a href="siyuan://blocks/20240201155930-1ln5yc3">最小正周期</a></div></div><div id="20240201161014-z473uec" data-node-id="20240201161014-z473uec" data-type="NodeList" updated="20240201162143" data-subtype="u" class="list"><div id="20240201161012-4ncrx78" data-node-id="20240201161012-4ncrx78" data-type="NodeListItem" updated="20240201162143" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201161012-9ia5sfx" data-node-id="20240201161012-9ia5sfx" data-type="NodeParagraph" updated="20240201162143" class="p"><div spellcheck="false">答案：错误。反例：<a href="siyuan://blocks/20240201161605-ovze031">狄利克雷函数</a>。 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div>
+    </div></div>
+    </div></div><div id="20240201161605-jfbdby9" data-node-id="20240201161605-jfbdby9" data-type="NodeList" updated="20240201162532" data-subtype="u" class="list"><div id="20240201161605-ovze031" data-node-id="20240201161605-ovze031" data-type="NodeListItem" updated="20240201162532" data-subtype="u" class="li" alias="Dirichlet函数" custom-riff-decks="20230218211946-2kw8jgx" name="狄利克雷函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201150910-ivn6it6" data-node-id="20240201150910-ivn6it6" data-type="NodeParagraph" updated="20240201162532" class="p"><div spellcheck="false">狄利克雷(Dirichlet)函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201161611-eawj09e" data-node-id="20240201161611-eawj09e" data-type="NodeList" updated="20240201162118" data-subtype="u" class="list"><div id="20240201161610-0c7byl2" data-node-id="20240201161610-0c7byl2" data-type="NodeListItem" updated="20240201162118" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201161610-62mybi6" data-node-id="20240201161610-62mybi6" data-type="NodeParagraph" updated="20240201162118" class="p"><div spellcheck="false"><span data-type="inline-math" data-subtype="math" data-content="\left.D\left(x\right)=\left\{\begin{matrix}1,&x\in\mathbf{Q},\\0,&x\in\mathbf{Q}^{c}.\end{matrix}\right.\right." class="render-node"></span>
+容易验证这是一个<a href="siyuan://blocks/20240201155930-1ln5yc3">周期函数</a>，任何正有理数 <span data-type="inline-math" data-subtype="math" data-content="r" class="render-node"></span> 都是它的周期。因为不存在最小的正有理数，所以它没有最小正周期</div></div>
+    </div></div>
+    </div></div><div id="20240201162821-d4e6ltx" data-node-id="20240201162821-d4e6ltx" data-type="NodeList" updated="20240201163311" data-subtype="u" class="list"><div id="20240201162821-02brnmn" data-node-id="20240201162821-02brnmn" data-type="NodeListItem" updated="20240201163311" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201160130-nt9yu2w" data-node-id="20240201160130-nt9yu2w" data-type="NodeParagraph" updated="20240201163311" class="p"><div spellcheck="false">反函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201162827-khuahuy" data-node-id="20240201162827-khuahuy" data-type="NodeList" updated="20240201163228" data-subtype="u" class="list"><div id="20240201162826-bouqr65" data-node-id="20240201162826-bouqr65" data-type="NodeListItem" updated="20240201163228" data-subtype="u" class="li" name="反函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201162826-ycij8ik" data-node-id="20240201162826-ycij8ik" data-type="NodeParagraph" updated="20240201163228" class="p"><div spellcheck="false">设函数<span data-type="inline-math" data-subtype="math" data-content="f{:}D{\to}f(D)" class="render-node"></span>是<a href="siyuan://blocks/20240201131548-8wjppll">单射</a>，则它存在<a href="siyuan://blocks/20240201134408-da7t7xz">逆映射</a><span data-type="inline-math" data-subtype="math" data-content="f^{-1}:f(D){\to}D" class="render-node"></span>, 称此映射<span data-type="inline-math" data-subtype="math" data-content="f^{-1}" class="render-node"></span>为函数 <span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span> 的<span data-type="u"><span data-type="strong">反函数</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201151216-736lw6w" data-node-id="20240201151216-736lw6w" data-type="NodeParagraph" updated="20240201163758" class="p" custom-riff-decks="20230218211946-2kw8jgx"><div spellcheck="false">若<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>是定义在<span data-type="inline-math" data-subtype="math" data-content="D" class="render-node"></span>上的<span data-type="mark">单调函数</span>，则<span data-type="inline-math" data-subtype="math" data-content="f{:}D{\to}f(D)" class="render-node"></span>是单射，于是<span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>的<a href="siyuan://blocks/20240201162826-bouqr65">反函数</a><span data-type="inline-math" data-subtype="math" data-content="f^{-1}" class="render-node"></span>必定存在，而且容易证明<span data-type="inline-math" data-subtype="math" data-content="f^{-1}" class="render-node"></span>也是<span data-type="inline-math" data-subtype="math" data-content="f(D)" class="render-node"></span>上的<span data-type="mark">单调函数</span>. <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div>​</div></div><div id="20240201163813-jbdxsyx" data-node-id="20240201163813-jbdxsyx" data-type="NodeList" updated="20240201164048" data-subtype="u" class="list"><div id="20240201163813-kkjab1u" data-node-id="20240201163813-kkjab1u" data-type="NodeListItem" updated="20240201164048" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201163302-gt886f9" data-node-id="20240201163302-gt886f9" data-type="NodeParagraph" updated="20240201164000" class="p"><div spellcheck="false">直接函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201163817-74pmb7y" data-node-id="20240201163817-74pmb7y" data-type="NodeList" updated="20240201164048" data-subtype="u" class="list"><div id="20240201163815-uqkfnq4" data-node-id="20240201163815-uqkfnq4" data-type="NodeListItem" updated="20240201164048" data-subtype="u" class="li" name="直接函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201163815-ly99shm" data-node-id="20240201163815-ly99shm" data-type="NodeParagraph" updated="20240201164048" class="p"><div spellcheck="false">相对于<a href="siyuan://blocks/20240201162826-bouqr65">反函数</a> <span data-type="inline-math" data-subtype="math" data-content="y=f^{-1}(x)" class="render-node"></span>来说，原来的<a href="siyuan://blocks/20240201141728-eprfnfv">函数</a> <span data-type="inline-math" data-subtype="math" data-content="y=f(x)" class="render-node"></span>称为<span data-type="u"><span data-type="strong">直接函数</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201164110-9pdgnk7" data-node-id="20240201164110-9pdgnk7" data-type="NodeParagraph" updated="20240201164336" class="p" custom-riff-decks="20230218211946-2kw8jgx"><div spellcheck="false">把<a href="siyuan://blocks/20240201163815-uqkfnq4">直接函数</a><span data-type="inline-math" data-subtype="math" data-content="y=f(x)" class="render-node"></span>和它的<a href="siyuan://blocks/20240201162826-bouqr65">反函数</a> <span data-type="inline-math" data-subtype="math" data-content="y=f^{-1}(x)" class="render-node"></span>的<a href="siyuan://blocks/20240201143328-7ou1gxb">图形</a>画在同一坐标平面上，这两个图形关于<span data-type="mark">直线 y=x</span> 是对称的. <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201164956-3rpioac" data-node-id="20240201164956-3rpioac" data-type="NodeList" updated="20240201165648" data-subtype="u" class="list"><div id="20240201164956-8qrspax" data-node-id="20240201164956-8qrspax" data-type="NodeListItem" updated="20240201165648" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201151105-mpv3c4z" data-node-id="20240201151105-mpv3c4z" data-type="NodeParagraph" updated="20240201165203" class="p"><div spellcheck="false">复合函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201164959-xd9layo" data-node-id="20240201164959-xd9layo" data-type="NodeList" updated="20240201165648" data-subtype="u" class="list"><div id="20240201164959-p7bf8oz" data-node-id="20240201164959-p7bf8oz" data-type="NodeListItem" updated="20240201165648" data-subtype="u" class="li" alias="中间变量" name="复合函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201164959-k22slmf" data-node-id="20240201164959-k22slmf" data-type="NodeParagraph" updated="20240201165648" class="p"><div spellcheck="false">（复合函数是<a href="siyuan://blocks/20240201140444-rmoq7x4">复合映射</a>的一种特例，按照通常函数的记号）
+设函数 <span data-type="inline-math" data-subtype="math" data-content="y=f(u)" class="render-node"></span>的<a href="siyuan://blocks/20240201141728-eprfnfv">定义域</a>为<span data-type="inline-math" data-subtype="math" data-content="D_f" class="render-node"></span>, 函数 <span data-type="inline-math" data-subtype="math" data-content="u=g(x)" class="render-node"></span> 的定义域为<span data-type="inline-math" data-subtype="math" data-content="D_{\text{g}}" class="render-node"></span>, 且其值域 <span data-type="inline-math" data-subtype="math" data-content="R_g\subset D_f" class="render-node"></span>, 则由下式确定的函数<br>  <span data-type="inline-math" data-subtype="math" data-content="y=f[\:g(\:x)\:],\quad x\in D_{g}" class="render-node"></span>
+称为由函数<span data-type="inline-math" data-subtype="math" data-content="u=g(x)" class="render-node"></span>与函数<span data-type="inline-math" data-subtype="math" data-content="y=f(u)" class="render-node"></span>构成的<span data-type="u"><span data-type="strong">复合函数</span></span>，它的定义域为<span data-type="inline-math" data-subtype="math" data-content="D_\mathrm{g}" class="render-node"></span>, 变量 <span data-type="inline-math" data-subtype="math" data-content="u" class="render-node"></span> 称为<span data-type="u"><span data-type="strong">中间变量</span></span>.
+函数 <span data-type="inline-math" data-subtype="math" data-content="g" class="render-node"></span> 与函数 <span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span> 构成的复合函数，即按“先 <span data-type="inline-math" data-subtype="math" data-content="g" class="render-node"></span> 后 <span data-type="inline-math" data-subtype="math" data-content="f" class="render-node"></span>”的次序复合的函数，通常记为<span data-type="inline-math" data-subtype="math" data-content="f\circ g" class="render-node"></span>, 即
+<span data-type="inline-math" data-subtype="math" data-content="(f\circ g)(x)=f[g(x)]" class="render-node"></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201165809-qycp351" data-node-id="20240201165809-qycp351" data-type="NodeList" updated="20240201170627" data-subtype="u" class="list"><div id="20240201165809-24e73wb" data-node-id="20240201165809-24e73wb" data-type="NodeListItem" updated="20240201170627" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201163950-dkd6svr" data-node-id="20240201163950-dkd6svr" data-type="NodeParagraph" updated="20240201170627" class="p"><div spellcheck="false">函数的四则运算 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201165814-5c4fq8p" data-node-id="20240201165814-5c4fq8p" data-type="NodeList" updated="20240201170547" data-subtype="u" class="list"><div id="20240201165812-m2mc8tb" data-node-id="20240201165812-m2mc8tb" data-type="NodeListItem" updated="20240201170547" data-subtype="u" class="li" name="函数的四则运算" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201165812-246fwoz" data-node-id="20240201165812-246fwoz" data-type="NodeParagraph" updated="20240201170547" class="p"><div spellcheck="false">设<a href="siyuan://blocks/20240201141728-eprfnfv">函数</a><span data-type="inline-math" data-subtype="math" data-content="f(x),g(x)" class="render-node"></span>的定义域依次为<span data-type="inline-math" data-subtype="math" data-content="D_f,D_g,D=D_f\cap D_g\neq\varnothing" class="render-node"></span>, 则我们可以定义这两个函数的下列运算：
+和(差)<span data-type="inline-math" data-subtype="math" data-content="f±g" class="render-node"></span>:   <span data-type="inline-math" data-subtype="math" data-content="(f\pm g)\left(x\right)=f(x)\pm g\left(x\right),x\in D;" class="render-node"></span>
+积<span data-type="inline-math" data-subtype="math" data-content="f\cdot g" class="render-node"></span>:           <span data-type="inline-math" data-subtype="math" data-content="\left(f\cdot g\right)\left(x\right)=f(x)\cdot g(x),x\in D;" class="render-node"></span><br>商<span data-type="inline-math" data-subtype="math" data-content="\frac{f}{g}" class="render-node"></span>:                <span data-type="inline-math" data-subtype="math" data-content="\left(\frac{f}{g}\right)(x)=\frac{f(x)}{g(x)},x\in D\setminus\{x\mid g(x)=0,x\in D\}\:" class="render-node"></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201152047-vrtvw8f" data-node-id="20240201152047-vrtvw8f" data-type="NodeParagraph" updated="20240201170955" class="p" custom-riff-decks="20230218211946-2kw8jgx"><div spellcheck="false">设函数 <span data-type="inline-math" data-subtype="math" data-content="f(x)" class="render-node"></span> 的<a href="siyuan://blocks/20240201141728-eprfnfv">定义域</a>为(-<span data-type="inline-math" data-subtype="math" data-content="l,l)" class="render-node"></span> , 必存在(-<span data-type="inline-math" data-subtype="math" data-content="l,l)" class="render-node"></span>上的<span data-type="mark">偶函数</span> <span data-type="inline-math" data-subtype="math" data-content="g(x)" class="render-node"></span> 及<span data-type="mark">奇函数</span> <span data-type="inline-math" data-subtype="math" data-content="h(x)" class="render-node"></span> ,使得
+<span data-type="inline-math" data-subtype="math" data-content="f(\:x\:)=g(\:x\:)+h(\:x\:)" class="render-node"></span>. <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201171413-plfjt0v" data-node-id="20240201171413-plfjt0v" data-type="NodeList" updated="20240201172759" data-subtype="u" class="list"><div id="20240201171413-4k1pizc" data-node-id="20240201171413-4k1pizc" data-type="NodeListItem" updated="20240201172759" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201170616-rf78ej3" data-node-id="20240201170616-rf78ej3" data-type="NodeParagraph" updated="20240201172759" class="p"><div spellcheck="false">基本初等函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201171416-758gijx" data-node-id="20240201171416-758gijx" data-type="NodeList" updated="20240201171905" data-subtype="u" class="list"><div id="20240201171415-rw2mjzt" data-node-id="20240201171415-rw2mjzt" data-type="NodeListItem" updated="20240201171905" data-subtype="u" class="li" name="基本初等函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201171415-daoaeyl" data-node-id="20240201171415-daoaeyl" data-type="NodeParagraph" updated="20240201171905" class="p"><div spellcheck="false">幂函数：<span data-type="inline-math" data-subtype="math" data-content="y=x^{\mu}" class="render-node"></span> (<span data-type="inline-math" data-subtype="math" data-content="\mu\in\mathbf{R}" class="render-node"></span> 是常数),
+指数函数 : <span data-type="inline-math" data-subtype="math" data-content="y=a^x" class="render-node"></span> (<span data-type="inline-math" data-subtype="math" data-content="a>0" class="render-node"></span>且 <span data-type="inline-math" data-subtype="math" data-content="a\neq1" class="render-node"></span>),
+对数函数：<span data-type="inline-math" data-subtype="math" data-content="y=\log_ax" class="render-node"></span> (<span data-type="inline-math" data-subtype="math" data-content="a>0" class="render-node"></span>且<span data-type="inline-math" data-subtype="math" data-content="a\neq1" class="render-node"></span>,特别当<span data-type="inline-math" data-subtype="math" data-content="a=\mathrm{e}" class="render-node"></span>时，记为<span data-type="inline-math" data-subtype="math" data-content="y=\ln x" class="render-node"></span>),
+三角函数：如<span data-type="inline-math" data-subtype="math" data-content="y=\sin x,y=\cos x,y=\tan x" class="render-node"></span>等，
+反三角函数：如<span data-type="inline-math" data-subtype="math" data-content="y=\arcsin x" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="y=\arccos x" class="render-node"></span>, <span data-type="inline-math" data-subtype="math" data-content="y=\arctan x" class="render-node"></span>等。
+以上这五类<a href="siyuan://blocks/20240201141728-eprfnfv">函数</a>统称为<span data-type="u"><span data-type="strong">基本初等函数</span></span>.</div></div>
+    </div></div>
+    </div></div><div id="20240201171935-5lqg4vl" data-node-id="20240201171935-5lqg4vl" data-type="NodeList" updated="20240201172834" data-subtype="u" class="list"><div id="20240201171935-g3pzisp" data-node-id="20240201171935-g3pzisp" data-type="NodeListItem" updated="20240201172834" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201152115-38xe5s1" data-node-id="20240201152115-38xe5s1" data-type="NodeParagraph" updated="20240201172834" class="p"><div spellcheck="false">初等函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201171937-unyyoqv" data-node-id="20240201171937-unyyoqv" data-type="NodeList" updated="20240201172054" data-subtype="u" class="list"><div id="20240201171937-sx7e9k6" data-node-id="20240201171937-sx7e9k6" data-type="NodeListItem" updated="20240201172054" data-subtype="u" class="li" name="初等函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201171937-vqysrei" data-node-id="20240201171937-vqysrei" data-type="NodeParagraph" updated="20240201172054" class="p"><div spellcheck="false">由常数和<a href="siyuan://blocks/20240201171415-rw2mjzt">基本初等函数</a>经过有限次的<a href="siyuan://blocks/20240201165812-m2mc8tb">四则运算</a>和有限次的<a href="siyuan://blocks/20240201164959-p7bf8oz">函数复合</a>步骤所构成并可用一个式子表示的函数，称为<span data-type="u"><span data-type="strong">初等函数</span></span>。</div></div>
+    </div></div>
+    </div></div><div id="20240201172206-9ekkhgh" data-node-id="20240201172206-9ekkhgh" data-type="NodeList" updated="20240201173622" data-subtype="u" class="list"><div id="20240201172206-x2uh9lz" data-node-id="20240201172206-x2uh9lz" data-type="NodeListItem" updated="20240201173622" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" name="双曲函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201152303-147nqv5" data-node-id="20240201152303-147nqv5" data-type="NodeParagraph" updated="20240201172949" class="p"><div spellcheck="false">双曲函数 <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201172210-uie977d" data-node-id="20240201172210-uie977d" data-type="NodeList" updated="20240201173622" data-subtype="u" class="list"><div id="20240201172209-rhcmex4" data-node-id="20240201172209-rhcmex4" data-type="NodeListItem" updated="20240201173622" data-subtype="u" class="li" name="双曲正弦" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201172209-i7m7e8i" data-node-id="20240201172209-i7m7e8i" data-type="NodeParagraph" updated="20240201173622" class="p"><div spellcheck="false">双曲正弦 <span data-type="inline-math" data-subtype="math" data-content="\mathrm{sh}\ x=\frac{\mathrm{e}^{x}-\mathrm{e}^{-x}}2" class="render-node"></span>，</div></div>
+    </div><div id="20240201172252-iugu1c1" data-node-id="20240201172252-iugu1c1" data-type="NodeListItem" data-subtype="u" class="li" name="双曲余弦" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201172252-62k6yev" data-node-id="20240201172252-62k6yev" data-type="NodeParagraph" updated="20240201172450" class="p"><div spellcheck="false">双曲余弦 <span data-type="inline-math" data-subtype="math" data-content="\text{ch}\ x=\frac{\mathrm{e}^x+\mathrm{e}^{-x}}{2}" class="render-node"></span>
+</div></div>
+    </div><div id="20240201172303-11rg30y" data-node-id="20240201172303-11rg30y" data-type="NodeListItem" data-subtype="u" class="li" name="双曲正切" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201172303-qdtf500" data-node-id="20240201172303-qdtf500" data-type="NodeParagraph" updated="20240201172537" class="p"><div spellcheck="false">双曲正切 <span data-type="inline-math" data-subtype="math" data-content="\text{th}\ x=\frac{\text{sh}\ x}{\text{ch}\ x}=\frac{\mathrm{e}^{x}-\mathrm{e}^{-x}}{\mathrm{e}^{x}+\mathrm{e}^{-x}}" class="render-node"></span>
+</div></div>
+    </div><div id="20240201172626-m8vtdqp" data-node-id="20240201172626-m8vtdqp" data-type="NodeListItem" updated="20240201172703" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201172627-2xe2k6t" data-node-id="20240201172627-2xe2k6t" data-type="NodeParagraph" updated="20240201172703" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 221px;" style="width: 211px;" style="width: 221px;">
+<img
+  src="./../../assets/image-20240201172627-6zxsmz0.png"
+  data-src="./../../assets/image-20240201172627-6zxsmz0.png"
+  title=""
+  style="width: 211px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span><span data-type="NodeImage" class="img" parent-style="width: 238px;" style="width: 228px;" style="width: 238px;">
+<img
+  src="./../../assets/image-20240201172702-t8862w1.png"
+  data-src="./../../assets/image-20240201172702-t8862w1.png"
+  title=""
+  style="width: 228px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div>
+    </div></div>
+    </div></div><div id="20240201174101-tcm1yj1" data-node-id="20240201174101-tcm1yj1" data-type="NodeParagraph" updated="20240201175040" class="p" custom-riff-decks="20230218211946-2kw8jgx"><div spellcheck="false"><a href="siyuan://blocks/20240201172209-rhcmex4">sh</a>(x+y) = <span data-type="mark">sh x ch y + ch x sh y</span> <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div>
+<a href="siyuan://blocks/20240201172209-rhcmex4">sh</a>(x - y) = <span data-type="mark">sh x ch y - ch x sh y</span>
+<a href="siyuan://blocks/20240201172252-iugu1c1">ch</a>(x+y) = <span data-type="mark">ch x ch y + sh x sh y</span>
+<a href="siyuan://blocks/20240201172252-iugu1c1">ch</a>(x - y) = <span data-type="mark">ch x ch y - sh x sh y</span></div></div><div id="20240201172957-facu1s3" data-node-id="20240201172957-facu1s3" data-type="NodeList" updated="20240201173925" data-subtype="u" class="list"><div id="20240201172957-3jzla8s" data-node-id="20240201172957-3jzla8s" data-type="NodeListItem" updated="20240201173925" data-subtype="u" class="li" custom-riff-decks="20230218211946-2kw8jgx" name="反双曲函数" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201152316-a8v52gg" data-node-id="20240201152316-a8v52gg" data-type="NodeParagraph" updated="20240201173925" class="p"><div spellcheck="false">反<a href="siyuan://blocks/20240201172206-x2uh9lz">双曲函数</a> <div class="ft__smaller ft__secondary b3-form__space--small">没有找到对应的渲染器 file-annotation-ref  映射与函数</div></div></div><div id="20240201173043-s4mth8v" data-node-id="20240201173043-s4mth8v" data-type="NodeList" updated="20240201173842" data-subtype="u" class="list"><div id="20240201173041-gb8dxpb" data-node-id="20240201173041-gb8dxpb" data-type="NodeListItem" data-subtype="u" class="li" name="反双曲正弦" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201173041-5xtfwdh" data-node-id="20240201173041-5xtfwdh" data-type="NodeParagraph" updated="20240201173641" class="p"><div spellcheck="false">反<a href="siyuan://blocks/20240201172209-rhcmex4">双曲正弦</a> <span data-type="inline-math" data-subtype="math" data-content="y=\mathrm{arsh}\ x" class="render-node"></span>
+</div></div>
+    </div><div id="20240201173302-ufev2jo" data-node-id="20240201173302-ufev2jo" data-type="NodeListItem" data-subtype="u" class="li" name="反双曲余弦" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201173302-qxj1vwd" data-node-id="20240201173302-qxj1vwd" data-type="NodeParagraph" updated="20240201173651" class="p"><div spellcheck="false">反<a href="siyuan://blocks/20240201172252-iugu1c1">双曲余弦</a> <span data-type="inline-math" data-subtype="math" data-content="y=\mathrm{arch}\ x" class="render-node"></span>
+</div></div>
+    </div><div id="20240201173313-dxv6e2k" data-node-id="20240201173313-dxv6e2k" data-type="NodeListItem" updated="20240201173320" data-subtype="u" class="li" name="反双曲正切" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201173313-e147vr5" data-node-id="20240201173313-e147vr5" data-type="NodeParagraph" updated="20240201173702" class="p"><div spellcheck="false">反<a href="siyuan://blocks/20240201172303-11rg30y">双曲正切</a> <span data-type="inline-math" data-subtype="math" data-content="y=\mathrm{arth}\ x" class="render-node"></span>
+</div></div>
+    </div><div id="20240201173756-w5w6bob" data-node-id="20240201173756-w5w6bob" data-type="NodeListItem" updated="20240201173842" data-subtype="u" class="li" data-marker="*">
+      <div class="protyle-action">
+        <svg><use xlink:href="#iconDot"></use></svg>
+      </div>
+      <div id="20240201173756-1a8dlwl" data-node-id="20240201173756-1a8dlwl" data-type="NodeParagraph" updated="20240201173842" class="p"><div spellcheck="false">​<span data-type="NodeImage" class="img" parent-style="width: 236px;" style="width: 226px;" style="width: 236px;">
+<img
+  src="./../../assets/image-20240201173756-qpu8aj4.png"
+  data-src="./../../assets/image-20240201173756-qpu8aj4.png"
+  title=""
+  style="width: 226px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span><span data-type="NodeImage" class="img" parent-style="width: 234px;" style="width: 224px;" style="width: 234px;">
+<img
+  src="./../../assets/image-20240201173818-0ugb88q.png"
+  data-src="./../../assets/image-20240201173818-0ugb88q.png"
+  title=""
+  style="width: 224px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span><span data-type="NodeImage" class="img" parent-style="width: 232px;" style="width: 222px;" style="width: 232px;">
+<img
+  src="./../../assets/image-20240201173841-7t0j04d.png"
+  data-src="./../../assets/image-20240201173841-7t0j04d.png"
+  title=""
+  style="width: 222px;"
+  loading="lazy"
+/>
+<span class="protyle-action__title"></span></span>​</div></div>
+    </div></div>
+    </div></div><div id="20240201172742-ulnwirt" data-node-id="20240201172742-ulnwirt" data-type="NodeParagraph" updated="20240201175035" class="p"><div spellcheck="false">
+</div></div>
+  </div>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/appearance/icons/material/icon.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/build/export/protyle-method.js?2.10.5"></script>
+  <script src="https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle/js/lute/lute.min.js?2.10.5"></script>
+  <script>
+    window.siyuan = {
+      config: {
+        appearance: {
+          mode: isNightTime()?1:0,//主题 明亮=0 暗黑=1
+          codeBlockThemeDark: "base16/dracula",
+          codeBlockThemeLight: "github",
+        },
+        editor: {
+          codeLineWrap: true,
+          codeLigatures: false,
+          plantUMLServePath: "https://www.plantuml.com/plantuml/svg/~1",
+          codeSyntaxHighlightLineNum: true,
+          katexMacros: JSON.stringify({}),
+        },
+      },
+      languages: { copy: "复制" },
+    };
+    const cdn = "https://fastly.jsdelivr.net/gh/siyuan-note/oceanpress@v0.0.7/apps/frontend/public/notebook/stage/protyle";
+    const previewElement = document.getElementById("preview");
+
+    Protyle.highlightRender(previewElement, cdn);
+    Protyle.mathRender(previewElement, cdn, false);
+    Protyle.mermaidRender(previewElement, cdn);
+    Protyle.flowchartRender(previewElement, cdn);
+    Protyle.graphvizRender(previewElement, cdn);
+    Protyle.chartRender(previewElement, cdn);
+    Protyle.mindmapRender(previewElement, cdn);
+    Protyle.abcRender(previewElement, cdn);
+    Protyle.htmlRender(previewElement);
+    Protyle.plantumlRender(previewElement, cdn);
+    document.querySelectorAll(".protyle-action__copy").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        navigator.clipboard.writeText(
+          item.parentElement.nextElementSibling.textContent.trimEnd(),
+        );
+        event.preventDefault();
+        event.stopPropagation();
+      });
+    });
+  </script>
+  <footer>
+<p style="text-align:center;margin:15px 0;">
+  技术支持：
+  <a target="_blank" href="https://github.com/2234839/oceanPress_js">OceanPress</a> |
+  开发者：
+  <a target="_blank" href="https://shenzilong.cn">崮生（子虚）</a>
+</p>
+</footer>
+</body>
+</html>
